@@ -38,7 +38,7 @@ const Calculations = {
   },
 
   // =====================================
-  // Expression Number
+  // 02. Expression Number
   // =====================================
   calculateExpressionNumber(firstName, middleName, lastName) {
     const first = this.calculateNameValue(firstName);
@@ -57,7 +57,7 @@ const Calculations = {
   },
 
   // =====================================
-  // Life Path Number
+  // 03. Life Path Number
   // =====================================
   calculateLifePath(day, month, year) {
     const dayReduction = Utils.reduceNumber(Number(day));
@@ -76,14 +76,14 @@ const Calculations = {
     };
   },
   // =====================================
-  // Birthday Number
+  // 04. Birthday Number
   // =====================================
   calculateBirthdayNumber(day) {
     return Utils.reduceNumber(Number(day));
   },
 
   // =====================================
-  // Attitude Number
+  // 05. Attitude Number
   // =====================================
   calculateAttitudeNumber(day, month) {
     const dayReduction = Utils.reduceNumber(Number(day));
@@ -100,7 +100,7 @@ const Calculations = {
   },
 
   // =====================================
-  // Soul Urge Number
+  // 06. Soul Urge Number
   // =====================================
   calculateSoulUrge(firstName, middleName, lastName) {
     const first = this.calculateVowelValue(firstName);
@@ -122,7 +122,7 @@ const Calculations = {
   },
 
   // =====================================
-  // Vowel Value
+  // 07. Vowel Value
   // =====================================
   calculateVowelValue(name) {
     name = Utils.cleanName(name);
@@ -154,7 +154,7 @@ const Calculations = {
     };
   },
   // =====================================
-  // Consonant Value
+  // 08. Consonant Value
   // =====================================
   calculateConsonantValue(name) {
     name = Utils.cleanName(name);
@@ -189,7 +189,7 @@ const Calculations = {
     };
   },
   // =====================================
-  // Personality Number
+  // 09. Personality Number
   // =====================================
   calculatePersonality(firstName, middleName, lastName) {
     const first = this.calculateConsonantValue(firstName);
@@ -203,6 +203,34 @@ const Calculations = {
       first: first,
       middle: middle,
       last: last,
+
+      total: total,
+
+      reduction: Utils.reduceNumber(total),
+    };
+  },
+  // =====================================
+  // 10. Balance Number
+  // =====================================
+  calculateBalanceNumber(firstName, middleName, lastName) {
+    const firstInitial = Utils.cleanName(firstName).charAt(0);
+    const middleInitial = Utils.cleanName(middleName).charAt(0);
+    const lastInitial = Utils.cleanName(lastName).charAt(0);
+
+    const firstValue = Chaldean.getLetterValue(firstInitial);
+    const middleValue = Chaldean.getLetterValue(middleInitial);
+    const lastValue = Chaldean.getLetterValue(lastInitial);
+
+    const total = firstValue + middleValue + lastValue;
+
+    return {
+      firstInitial: firstInitial,
+      middleInitial: middleInitial,
+      lastInitial: lastInitial,
+
+      firstValue: firstValue,
+      middleValue: middleValue,
+      lastValue: lastValue,
 
       total: total,
 
