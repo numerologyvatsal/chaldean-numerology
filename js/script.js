@@ -1,3 +1,5 @@
 console.clear();
 
-console.log(Calculations.calculateKarmicLesson("VATSAL", "RAJESHBHAI", "RAJA"));
+console.log(
+  Calculations.calculateSubconsciousSelf("VATSAL", "RAJESHBHAI", "RAJA"),
+);
