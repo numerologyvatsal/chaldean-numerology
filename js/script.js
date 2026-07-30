@@ -1,3 +1,3 @@
-console.log(
-  Calculations.calculateHiddenPassion("VATSAL", "RAJESHBHAI", "RAJA"),
-);
+console.clear();
+
+console.log(Calculations.calculateKarmicLesson("VATSAL", "RAJESHBHAI", "RAJA"));

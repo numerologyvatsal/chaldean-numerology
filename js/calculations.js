@@ -296,4 +296,48 @@ const Calculations = {
       hiddenPassion: hiddenPassion,
     };
   },
+  // =====================================
+  // 12. Karmic Lesson
+  // =====================================
+  calculateKarmicLesson(firstName, middleName, lastName) {
+    const fullName =
+      Utils.cleanName(firstName) +
+      " " +
+      Utils.cleanName(middleName) +
+      " " +
+      Utils.cleanName(lastName);
+
+    const counts = {
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+      6: 0,
+      7: 0,
+      8: 0,
+    };
+
+    for (let letter of fullName) {
+      if (letter === " ") continue;
+
+      const value = Chaldean.getLetterValue(letter);
+
+      counts[value]++;
+    }
+
+    const karmicLessons = [];
+
+    for (let number in counts) {
+      if (counts[number] === 0) {
+        karmicLessons.push(Number(number));
+      }
+    }
+
+    return {
+      counts: counts,
+
+      karmicLessons: karmicLessons,
+    };
+  },
 };
