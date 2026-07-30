@@ -1,5 +1,5 @@
 console.clear();
 
 console.log(
-  Calculations.calculateSubconsciousSelf("VATSAL", "RAJESHBHAI", "RAJA"),
+  Calculations.calculateRationalThought("VATSAL", "RAJESHBHAI", "RAJA", 16),
 );

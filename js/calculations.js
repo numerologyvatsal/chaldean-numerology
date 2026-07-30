@@ -384,4 +384,28 @@ const Calculations = {
       subconsciousSelf: subconsciousSelf,
     };
   },
+  // =====================================
+  // 14. Rational Thought Number
+  // =====================================
+  calculateRationalThought(firstName, middleName, lastName, birthDay) {
+    const expression = this.calculateExpressionNumber(
+      firstName,
+      middleName,
+      lastName,
+    );
+
+    const birthday = this.calculateBirthdayNumber(birthDay);
+
+    const total = expression.reduction.final + birthday.final;
+
+    return {
+      expression: expression,
+
+      birthday: birthday,
+
+      total: total,
+
+      reduction: Utils.reduceNumber(total),
+    };
+  },
 };
