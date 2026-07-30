@@ -1,5 +1,12 @@
 console.clear();
 
 console.log(
-  Calculations.calculateRationalThought("VATSAL", "RAJESHBHAI", "RAJA", 16),
+  Calculations.calculateMaturityNumber(
+    "VATSAL",
+    "RAJESHBHAI",
+    "RAJA",
+    16,
+    4,
+    2002,
+  ),
 );

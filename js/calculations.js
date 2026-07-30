@@ -408,4 +408,28 @@ const Calculations = {
       reduction: Utils.reduceNumber(total),
     };
   },
+  // =====================================
+  // 15. Maturity Number
+  // =====================================
+  calculateMaturityNumber(firstName, middleName, lastName, day, month, year) {
+    const expression = this.calculateExpressionNumber(
+      firstName,
+      middleName,
+      lastName,
+    );
+
+    const lifePath = this.calculateLifePath(day, month, year);
+
+    const total = expression.reduction.final + lifePath.reduction.final;
+
+    return {
+      expression: expression,
+
+      lifePath: lifePath,
+
+      total: total,
+
+      reduction: Utils.reduceNumber(total),
+    };
+  },
 };
