@@ -1,5 +1,3 @@
-console.clear();
-
 console.log(
-  Calculations.calculateBalanceNumber("VATSAL", "RAJESHBHAI", "RAJA"),
+  Calculations.calculateHiddenPassion("VATSAL", "RAJESHBHAI", "RAJA"),
 );
