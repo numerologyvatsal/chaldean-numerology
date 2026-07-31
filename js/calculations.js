@@ -598,4 +598,29 @@ const Calculations = {
       },
     };
   },
+
+  // =====================================
+  // 19. Personal Year Number
+  // =====================================
+  calculatePersonalYear(day, month, currentYear) {
+    // Reduce Inputs
+    const dayNumber = Utils.reduceNumber(day).final;
+    const monthNumber = Utils.reduceNumber(month).final;
+    const yearNumber = Utils.reduceNumber(currentYear).final;
+
+    // Total
+    const total = dayNumber + monthNumber + yearNumber;
+
+    return {
+      birthDay: Utils.reduceNumber(day),
+
+      birthMonth: Utils.reduceNumber(month),
+
+      currentYear: Utils.reduceNumber(currentYear),
+
+      total: total,
+
+      reduction: Utils.reduceNumber(total, true),
+    };
+  },
 };

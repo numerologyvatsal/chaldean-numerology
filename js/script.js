@@ -1,5 +1,5 @@
 console.clear();
 
-console.log("Challenge Numbers");
+console.log("Personal Year");
 
-console.log(Calculations.calculateChallengeNumbers(16, 4, 2002));
+console.log(Calculations.calculatePersonalYear(16, 4, 2026));
