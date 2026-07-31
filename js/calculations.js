@@ -554,4 +554,48 @@ const Calculations = {
       },
     };
   },
+
+  // =====================================
+  // 18. Challenge Numbers
+  // =====================================
+  calculateChallengeNumbers(day, month, year) {
+    // Reduce Inputs
+    const dayNumber = Utils.reduceNumber(day).final;
+    const monthNumber = Utils.reduceNumber(month).final;
+    const yearNumber = Utils.reduceNumber(year).final;
+
+    // 1st Challenge
+    const firstTotal = Math.abs(monthNumber - dayNumber);
+
+    // 2nd Challenge
+    const secondTotal = Math.abs(dayNumber - yearNumber);
+
+    // 3rd Challenge
+    const thirdTotal = Math.abs(firstTotal - secondTotal);
+
+    // 4th Challenge
+    const fourthTotal = Math.abs(monthNumber - yearNumber);
+
+    return {
+      first: {
+        total: firstTotal,
+        reduction: Utils.reduceNumber(firstTotal),
+      },
+
+      second: {
+        total: secondTotal,
+        reduction: Utils.reduceNumber(secondTotal),
+      },
+
+      third: {
+        total: thirdTotal,
+        reduction: Utils.reduceNumber(thirdTotal),
+      },
+
+      fourth: {
+        total: fourthTotal,
+        reduction: Utils.reduceNumber(fourthTotal),
+      },
+    };
+  },
 };

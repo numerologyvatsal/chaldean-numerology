@@ -1,5 +1,5 @@
 console.clear();
 
-console.log("Pinnacle Numbers");
+console.log("Challenge Numbers");
 
-console.log(Calculations.calculatePinnacleNumbers(16, 4, 2002));
+console.log(Calculations.calculateChallengeNumbers(16, 4, 2002));
