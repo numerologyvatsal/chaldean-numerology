@@ -45,14 +45,17 @@ const Calculations = {
     const middle = this.calculateNameValue(middleName);
     const last = this.calculateNameValue(lastName);
 
-    const grandTotal = first.total + middle.total + last.total;
+    const grandTotal =
+      first.reduction.final + middle.reduction.final + last.reduction.final;
 
     return {
       first: first,
       middle: middle,
       last: last,
+
       total: grandTotal,
-      reduction: Utils.reduceNumber(grandTotal),
+
+      reduction: Utils.reduceNumber(grandTotal, true),
     };
   },
 
@@ -71,8 +74,10 @@ const Calculations = {
       day: dayReduction,
       month: monthReduction,
       year: yearReduction,
+
       total: total,
-      reduction: Utils.reduceNumber(total),
+
+      reduction: Utils.reduceNumber(total, true),
     };
   },
   // =====================================
@@ -117,7 +122,7 @@ const Calculations = {
 
       total: total,
 
-      reduction: Utils.reduceNumber(total),
+      reduction: Utils.reduceNumber(total, true),
     };
   },
 
@@ -396,7 +401,7 @@ const Calculations = {
 
     const birthday = this.calculateBirthdayNumber(birthDay);
 
-    const total = expression.reduction.final + birthday.final;
+    const total = expression.reduction.final + birthday.reduction.final;
 
     return {
       expression: expression,
@@ -405,7 +410,7 @@ const Calculations = {
 
       total: total,
 
-      reduction: Utils.reduceNumber(total),
+      reduction: Utils.reduceNumber(total, true),
     };
   },
   // =====================================
@@ -429,7 +434,7 @@ const Calculations = {
 
       total: total,
 
-      reduction: Utils.reduceNumber(total),
+      reduction: Utils.reduceNumber(total, true),
     };
   },
 };
