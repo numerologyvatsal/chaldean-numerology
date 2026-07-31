@@ -33,6 +33,24 @@ const Utils = {
     const original = Number(number);
     const steps = [original];
 
+    // Preserve Master Number if original total is 11, 22 or 33
+    if (
+      preserveMaster &&
+      (original === 11 || original === 22 || original === 33)
+    ) {
+      return {
+        original: original,
+
+        steps: steps,
+
+        compound: original,
+
+        final: original,
+
+        isMaster: true,
+      };
+    }
+
     let current = original;
 
     while (current > 9) {
@@ -42,19 +60,24 @@ const Utils = {
         .reduce((sum, digit) => sum + Number(digit), 0);
 
       steps.push(current);
-    }
 
-    const compound = steps.length > 1 ? steps[steps.length - 2] : original;
+      // Stop if a Master Number is reached
+      if (
+        preserveMaster &&
+        (current === 11 || current === 22 || current === 33)
+      ) {
+        return {
+          original: original,
 
-    let finalNumber = current;
-    let isMaster = false;
+          steps: steps,
 
-    if (
-      preserveMaster &&
-      (compound === 11 || compound === 22 || compound === 33)
-    ) {
-      finalNumber = compound;
-      isMaster = true;
+          compound: original,
+
+          final: current,
+
+          isMaster: true,
+        };
+      }
     }
 
     return {
@@ -62,15 +85,11 @@ const Utils = {
 
       steps: steps,
 
-      compound: compound,
+      compound: original,
 
-      final: finalNumber,
+      final: current,
 
-      isMaster: isMaster,
+      isMaster: false,
     };
-  },
-
-  compound(number) {
-    return this.reduceNumber(number);
   },
 };

@@ -481,4 +481,77 @@ const Calculations = {
       },
     };
   },
+  // =====================================
+  // 17. Pinnacle Numbers
+  // =====================================
+  calculatePinnacleNumbers(day, month, year) {
+    // Reduce Inputs (No Master Preservation)
+    const dayNumber = Utils.reduceNumber(day).final;
+    const monthNumber = Utils.reduceNumber(month).final;
+    const yearNumber = Utils.reduceNumber(year).final;
+
+    // 1st Pinnacle
+    const firstTotal = monthNumber + dayNumber;
+
+    // 2nd Pinnacle
+    const secondTotal = dayNumber + yearNumber;
+
+    // 3rd Pinnacle
+    const thirdTotal =
+      Utils.reduceNumber(firstTotal, true).final +
+      Utils.reduceNumber(secondTotal, true).final;
+
+    // 4th Pinnacle
+    const fourthTotal = monthNumber + yearNumber;
+
+    // Life Path
+    const lifePath = this.calculateLifePath(day, month, year);
+
+    // Age Ranges
+    const firstEnd = 36 - lifePath.reduction.final;
+
+    return {
+      first: {
+        total: firstTotal,
+        reduction: Utils.reduceNumber(firstTotal, true),
+      },
+
+      second: {
+        total: secondTotal,
+        reduction: Utils.reduceNumber(secondTotal, true),
+      },
+
+      third: {
+        total: thirdTotal,
+        reduction: Utils.reduceNumber(thirdTotal, true),
+      },
+
+      fourth: {
+        total: fourthTotal,
+        reduction: Utils.reduceNumber(fourthTotal, true),
+      },
+
+      ageRanges: {
+        first: {
+          start: 0,
+          end: firstEnd,
+        },
+
+        second: {
+          start: firstEnd + 1,
+          end: firstEnd + 9,
+        },
+
+        third: {
+          start: firstEnd + 10,
+          end: firstEnd + 18,
+        },
+
+        fourth: {
+          start: firstEnd + 19,
+          end: null,
+        },
+      },
+    };
+  },
 };
