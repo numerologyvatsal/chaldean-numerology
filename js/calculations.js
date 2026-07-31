@@ -623,4 +623,121 @@ const Calculations = {
       reduction: Utils.reduceNumber(total, true),
     };
   },
+
+  // =====================================
+  // 20. Personal Month Number
+  // =====================================
+  calculatePersonalMonth(day, month, currentYear, currentMonth) {
+    // Personal Year
+    const personalYear = this.calculatePersonalYear(day, month, currentYear);
+
+    // Reduce Current Month
+    const monthNumber = Utils.reduceNumber(currentMonth).final;
+
+    // Total
+    const total = personalYear.reduction.final + monthNumber;
+
+    return {
+      personalYear: personalYear,
+
+      currentMonth: Utils.reduceNumber(currentMonth),
+
+      total: total,
+
+      reduction: Utils.reduceNumber(total, true),
+    };
+  },
+
+  // =====================================
+  // 21. Personal Day Number
+  // =====================================
+  calculatePersonalDay(day, month, currentYear, currentMonth, currentDay) {
+    // Personal Month
+    const personalMonth = this.calculatePersonalMonth(
+      day,
+      month,
+      currentYear,
+      currentMonth,
+    );
+
+    // Reduce Current Day
+    const dayNumber = Utils.reduceNumber(currentDay).final;
+
+    // Total
+    const total = personalMonth.reduction.final + dayNumber;
+
+    return {
+      personalMonth: personalMonth,
+
+      currentDay: Utils.reduceNumber(currentDay),
+
+      total: total,
+
+      reduction: Utils.reduceNumber(total, true),
+    };
+  },
+
+  // =====================================
+  // 22. Universal Year Number
+  // =====================================
+  calculateUniversalYear(currentYear) {
+    return {
+      currentYear: Utils.reduceNumber(currentYear),
+
+      total: Utils.reduceNumber(currentYear).final,
+
+      reduction: Utils.reduceNumber(currentYear, true),
+    };
+  },
+
+  // =====================================
+  // 23. Universal Month Number
+  // =====================================
+  calculateUniversalMonth(currentYear, currentMonth) {
+    // Universal Year
+    const universalYear = this.calculateUniversalYear(currentYear);
+
+    // Reduce Current Month
+    const monthNumber = Utils.reduceNumber(currentMonth).final;
+
+    // Total
+    const total = universalYear.reduction.final + monthNumber;
+
+    return {
+      universalYear: universalYear,
+
+      currentMonth: Utils.reduceNumber(currentMonth),
+
+      total: total,
+
+      reduction: Utils.reduceNumber(total, true),
+    };
+  },
+
+  // =====================================
+  // 24. Universal Day Number
+  // =====================================
+  calculateUniversalDay(currentYear, currentMonth, currentDay) {
+    // Universal Month
+    const universalMonth = this.calculateUniversalMonth(
+      currentYear,
+      currentMonth,
+    );
+
+    // Reduce Current Day
+    const dayNumber = Utils.reduceNumber(currentDay).final;
+
+    // Total
+    const total = universalMonth.reduction.final + dayNumber;
+
+    return {
+      universalMonth: universalMonth,
+
+      currentDay: Utils.reduceNumber(currentDay),
+
+      total: total,
+
+      reduction: Utils.reduceNumber(total, true),
+    };
+  },
 };

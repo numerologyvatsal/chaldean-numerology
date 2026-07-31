@@ -1,5 +1,5 @@
 console.clear();
 
-console.log("Personal Year");
+console.log("Universal Day");
 
-console.log(Calculations.calculatePersonalYear(16, 4, 2026));
+console.log(Calculations.calculateUniversalDay(2026, 8, 29));
