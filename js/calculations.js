@@ -437,4 +437,48 @@ const Calculations = {
       reduction: Utils.reduceNumber(total, true),
     };
   },
+  // =====================================
+  // 16. Bridge Numbers
+  // =====================================
+  calculateBridgeNumbers(firstName, middleName, lastName, day, month, year) {
+    const expression = this.calculateExpressionNumber(
+      firstName,
+      middleName,
+      lastName,
+    );
+
+    const birthday = this.calculateBirthdayNumber(day);
+
+    const lifePath = this.calculateLifePath(day, month, year);
+
+    // Life Path Bridge
+    const lifePathBridgeTotal = Math.abs(
+      expression.reduction.final - lifePath.reduction.final,
+    );
+
+    // Birthday Bridge
+    const birthdayBridgeTotal = Math.abs(
+      birthday.final - lifePath.reduction.final,
+    );
+
+    return {
+      expression: expression,
+
+      birthday: birthday,
+
+      lifePath: lifePath,
+
+      lifePathBridge: {
+        total: lifePathBridgeTotal,
+
+        reduction: Utils.reduceNumber(lifePathBridgeTotal, true),
+      },
+
+      birthdayBridge: {
+        total: birthdayBridgeTotal,
+
+        reduction: Utils.reduceNumber(birthdayBridgeTotal, true),
+      },
+    };
+  },
 };
