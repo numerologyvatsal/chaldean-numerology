@@ -1,25 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Chaldean Numerology</title>
 
-    <link rel="stylesheet"
-          href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-</head>
+  <body>
+    <main class="container">
+      <!-- =========================
+             Title
+        ========================== -->
 
-<body>
+      <section class="hero">
+        <h1>Chaldean Numerology</h1>
 
-    <div id="app">
+        <p>Calculate Complete Numerology Report</p>
+      </section>
 
-    </div>
+      <!-- =========================
+             Input Form
+        ========================== -->
+
+      <section class="form-card">
+        <div class="form-group">
+          <label for="fullName"> Full Name </label>
+
+          <input
+            type="text"
+            id="fullName"
+            placeholder="Enter Full Name"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="dob"> Date of Birth </label>
+
+          <input type="date" id="dob" />
+        </div>
+
+        <div class="button-group">
+          <button id="calculateBtn">Calculate</button>
+
+          <button id="resetBtn">Reset</button>
+        </div>
+      </section>
+
+      <!-- =========================
+             Result
+        ========================== -->
+
+      <section id="reportContainer"></section>
+    </main>
 
     <script src="js/utils.js"></script>
     <script src="js/engine.js"></script>
@@ -27,7 +64,5 @@
     <script src="js/database.js"></script>
     <script src="js/report.js"></script>
     <script src="js/script.js"></script>
-
-</body>
-
+  </body>
 </html>

@@ -6,7 +6,8 @@ CHALDEAN CALCULATIONS
 
 const Calculations = {
   // =====================================
-  // 01. Name Value
+  // 01. Name Number
+  // Source : Chaldean
   // =====================================
   calculateNameValue(name) {
     // Name Clean કરો
@@ -39,6 +40,7 @@ const Calculations = {
 
   // =====================================
   // 02. Expression Number
+  // Source : Chaldean
   // =====================================
   calculateExpressionNumber(firstName, middleName, lastName) {
     const first = this.calculateNameValue(firstName);
@@ -61,6 +63,7 @@ const Calculations = {
 
   // =====================================
   // 03. Life Path Number
+  // Source : Modern Numerology
   // =====================================
   calculateLifePath(day, month, year) {
     const dayReduction = Utils.reduceNumber(Number(day));
@@ -82,6 +85,7 @@ const Calculations = {
   },
   // =====================================
   // 04. Birthday Number
+  // Source : Modern Numerology
   // =====================================
   calculateBirthdayNumber(day) {
     return Utils.reduceNumber(Number(day));
@@ -89,6 +93,7 @@ const Calculations = {
 
   // =====================================
   // 05. Attitude Number
+  // Source : Modern Numerology
   // =====================================
   calculateAttitudeNumber(day, month) {
     const dayReduction = Utils.reduceNumber(Number(day));
@@ -106,6 +111,7 @@ const Calculations = {
 
   // =====================================
   // 06. Soul Urge Number
+  // Source : Chaldean
   // =====================================
   calculateSoulUrge(firstName, middleName, lastName) {
     const first = this.calculateVowelValue(firstName);
@@ -128,6 +134,7 @@ const Calculations = {
 
   // =====================================
   // 07. Vowel Value
+  // Source : Chaldean
   // =====================================
   calculateVowelValue(name) {
     name = Utils.cleanName(name);
@@ -160,6 +167,7 @@ const Calculations = {
   },
   // =====================================
   // 08. Consonant Value
+  // Source : Chaldean
   // =====================================
   calculateConsonantValue(name) {
     name = Utils.cleanName(name);
@@ -195,6 +203,7 @@ const Calculations = {
   },
   // =====================================
   // 09. Personality Number
+  // Source : Chaldean
   // =====================================
   calculatePersonality(firstName, middleName, lastName) {
     const first = this.calculateConsonantValue(firstName);
@@ -216,6 +225,7 @@ const Calculations = {
   },
   // =====================================
   // 10. Balance Number
+  // Source : Modern Numerology
   // =====================================
   calculateBalanceNumber(firstName, middleName, lastName) {
     const firstInitial = Utils.cleanName(firstName).charAt(0);
@@ -243,7 +253,8 @@ const Calculations = {
     };
   },
   // =====================================
-  // 11. Hidden Passion
+  // 11. Hidden Passion Number
+  // Source : Modern Numerology
   // =====================================
   calculateHiddenPassion(firstName, middleName, lastName) {
     const fullName =
@@ -302,7 +313,8 @@ const Calculations = {
     };
   },
   // =====================================
-  // 12. Karmic Lesson
+  // 12. Karmic Lesson Number
+  // Source : Modern Numerology
   // =====================================
   calculateKarmicLesson(firstName, middleName, lastName) {
     const fullName =
@@ -346,7 +358,8 @@ const Calculations = {
     };
   },
   // =====================================
-  // 13. Subconscious Self
+  // 13. Subconscious Self Number
+  // Source : Modern Numerology
   // =====================================
   calculateSubconsciousSelf(firstName, middleName, lastName) {
     const fullName =
@@ -391,6 +404,7 @@ const Calculations = {
   },
   // =====================================
   // 14. Rational Thought Number
+  // Source : Modern Numerology
   // =====================================
   calculateRationalThought(firstName, middleName, lastName, birthDay) {
     const expression = this.calculateExpressionNumber(
@@ -415,6 +429,7 @@ const Calculations = {
   },
   // =====================================
   // 15. Maturity Number
+  // Source : Modern Numerology
   // =====================================
   calculateMaturityNumber(firstName, middleName, lastName, day, month, year) {
     const expression = this.calculateExpressionNumber(
@@ -439,6 +454,7 @@ const Calculations = {
   },
   // =====================================
   // 16. Bridge Numbers
+  // Source : Modern Numerology
   // =====================================
   calculateBridgeNumbers(firstName, middleName, lastName, day, month, year) {
     const expression = this.calculateExpressionNumber(
@@ -483,6 +499,7 @@ const Calculations = {
   },
   // =====================================
   // 17. Pinnacle Numbers
+  // Source : Modern Numerology
   // =====================================
   calculatePinnacleNumbers(day, month, year) {
     // Reduce Inputs (No Master Preservation)
@@ -557,6 +574,7 @@ const Calculations = {
 
   // =====================================
   // 18. Challenge Numbers
+  // Source : Modern Numerology
   // =====================================
   calculateChallengeNumbers(day, month, year) {
     // Reduce Inputs
@@ -601,6 +619,7 @@ const Calculations = {
 
   // =====================================
   // 19. Personal Year Number
+  // Source : Modern Numerology
   // =====================================
   calculatePersonalYear(day, month, currentYear) {
     // Reduce Inputs
@@ -626,6 +645,7 @@ const Calculations = {
 
   // =====================================
   // 20. Personal Month Number
+  // Source : Modern Numerology
   // =====================================
   calculatePersonalMonth(day, month, currentYear, currentMonth) {
     // Personal Year
@@ -650,6 +670,7 @@ const Calculations = {
 
   // =====================================
   // 21. Personal Day Number
+  // Source : Modern Numerology
   // =====================================
   calculatePersonalDay(day, month, currentYear, currentMonth, currentDay) {
     // Personal Month
@@ -679,6 +700,7 @@ const Calculations = {
 
   // =====================================
   // 22. Universal Year Number
+  // Source : Modern Numerology
   // =====================================
   calculateUniversalYear(currentYear) {
     return {
@@ -692,6 +714,7 @@ const Calculations = {
 
   // =====================================
   // 23. Universal Month Number
+  // Source : Modern Numerology
   // =====================================
   calculateUniversalMonth(currentYear, currentMonth) {
     // Universal Year
@@ -716,6 +739,7 @@ const Calculations = {
 
   // =====================================
   // 24. Universal Day Number
+  // Source : Modern Numerology
   // =====================================
   calculateUniversalDay(currentYear, currentMonth, currentDay) {
     // Universal Month

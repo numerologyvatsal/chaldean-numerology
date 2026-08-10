@@ -1,15 +1,238 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* ==========================================
+   Reset
+========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
+html {
+  scroll-behavior: smooth;
+}
 
-    font-family:Arial, Helvetica, sans-serif;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 
-    background:#111;
+  background: #f4f6fb;
 
-    color:white;
+  color: #222;
 
+  line-height: 1.6;
+}
+
+/* ==========================================
+   Container
+========================================== */
+
+.container {
+  max-width: 1000px;
+
+  margin: auto;
+
+  padding: 40px 20px;
+}
+
+/* ==========================================
+   Hero
+========================================== */
+
+.hero {
+  text-align: center;
+
+  margin-bottom: 40px;
+}
+
+.hero h1 {
+  font-size: 38px;
+
+  margin-bottom: 10px;
+
+  color: #1d4ed8;
+}
+
+.hero p {
+  color: #666;
+
+  font-size: 16px;
+}
+
+/* ==========================================
+   Card
+========================================== */
+
+.form-card {
+  background: #fff;
+
+  padding: 30px;
+
+  border-radius: 15px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 35px;
+}
+
+/* ==========================================
+   Form
+========================================== */
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #1d4ed8;
+}
+
+/* ==========================================
+   Buttons
+========================================== */
+
+.button-group {
+  display: flex;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+.button-group button {
+  flex: 1;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+#calculateBtn {
+  background: #1d4ed8;
+
+  color: #fff;
+}
+
+#calculateBtn:hover {
+  background: #1e40af;
+}
+
+#resetBtn {
+  background: #e5e7eb;
+}
+
+#resetBtn:hover {
+  background: #d1d5db;
+}
+
+/* ==========================================
+   Report
+========================================== */
+
+#reportContainer {
+  display: none;
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .form-card {
+    padding: 20px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+}
+/* ==========================================
+   Result
+========================================== */
+
+.accordion {
+  background: #fff;
+
+  border-radius: 12px;
+
+  margin-bottom: 15px;
+
+  overflow: hidden;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.accordion summary {
+  padding: 18px;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  list-style: none;
+}
+
+.accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.result-item {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 15px 20px;
+
+  border-top: 1px solid #eee;
+}
+
+.result-item span {
+  font-weight: 600;
+}
+
+.result-item strong {
+  font-size: 20px;
+
+  color: #1d4ed8;
 }
