@@ -502,50 +502,74 @@ const Calculations = {
   // Source : Modern Numerology
   // =====================================
   calculatePinnacleNumbers(day, month, year) {
-    // Reduce Inputs (No Master Preservation)
-    const dayNumber = Utils.reduceNumber(day).final;
-    const monthNumber = Utils.reduceNumber(month).final;
-    const yearNumber = Utils.reduceNumber(year).final;
+    // Reduce Inputs
+    const dayNumber = Utils.reduceNumber(Number(day)).final;
 
+    const monthNumber = Utils.reduceNumber(Number(month)).final;
+
+    const yearNumber = Utils.reduceNumber(Number(year)).final;
+
+    // =====================================
     // 1st Pinnacle
+    // =====================================
+
     const firstTotal = monthNumber + dayNumber;
 
+    // =====================================
     // 2nd Pinnacle
+    // =====================================
+
     const secondTotal = dayNumber + yearNumber;
 
+    // =====================================
     // 3rd Pinnacle
-    const thirdTotal =
-      Utils.reduceNumber(firstTotal, true).final +
-      Utils.reduceNumber(secondTotal, true).final;
+    // =====================================
 
+    const thirdTotal =
+      Utils.reduceNumber(firstTotal).final +
+      Utils.reduceNumber(secondTotal).final;
+
+    // =====================================
     // 4th Pinnacle
+    // =====================================
+
     const fourthTotal = monthNumber + yearNumber;
 
+    // =====================================
     // Life Path
+    // =====================================
+
     const lifePath = this.calculateLifePath(day, month, year);
 
+    // =====================================
     // Age Ranges
+    // =====================================
+
     const firstEnd = 36 - lifePath.reduction.final;
+
+    // =====================================
+    // Return
+    // =====================================
 
     return {
       first: {
         total: firstTotal,
-        reduction: Utils.reduceNumber(firstTotal, true),
+        reduction: Utils.reduceNumber(firstTotal),
       },
 
       second: {
         total: secondTotal,
-        reduction: Utils.reduceNumber(secondTotal, true),
+        reduction: Utils.reduceNumber(secondTotal),
       },
 
       third: {
         total: thirdTotal,
-        reduction: Utils.reduceNumber(thirdTotal, true),
+        reduction: Utils.reduceNumber(thirdTotal),
       },
 
       fourth: {
         total: fourthTotal,
-        reduction: Utils.reduceNumber(fourthTotal, true),
+        reduction: Utils.reduceNumber(fourthTotal),
       },
 
       ageRanges: {
@@ -571,7 +595,6 @@ const Calculations = {
       },
     };
   },
-
   // =====================================
   // 18. Challenge Numbers
   // Source : Modern Numerology
@@ -624,7 +647,9 @@ const Calculations = {
   calculatePersonalYear(day, month, currentYear) {
     // Reduce Inputs
     const dayNumber = Utils.reduceNumber(day).final;
+
     const monthNumber = Utils.reduceNumber(month).final;
+
     const yearNumber = Utils.reduceNumber(currentYear).final;
 
     // Total
@@ -639,7 +664,7 @@ const Calculations = {
 
       total: total,
 
-      reduction: Utils.reduceNumber(total, true),
+      reduction: Utils.reduceNumber(total),
     };
   },
 
@@ -664,7 +689,7 @@ const Calculations = {
 
       total: total,
 
-      reduction: Utils.reduceNumber(total, true),
+      reduction: Utils.reduceNumber(total),
     };
   },
 
@@ -694,7 +719,7 @@ const Calculations = {
 
       total: total,
 
-      reduction: Utils.reduceNumber(total, true),
+      reduction: Utils.reduceNumber(total),
     };
   },
 

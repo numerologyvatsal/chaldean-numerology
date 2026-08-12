@@ -27,31 +27,18 @@ const Utils = {
   },
 
   // =====================================
-  // Reduce Number
+  // Traditional Chaldean Reduction
   // =====================================
-  reduceNumber(number, preserveMaster = false) {
+  reduceNumber(number) {
     const original = Number(number);
-    const steps = [original];
-
-    // Preserve Master Number if original total is 11, 22 or 33
-    if (
-      preserveMaster &&
-      (original === 11 || original === 22 || original === 33)
-    ) {
-      return {
-        original: original,
-
-        steps: steps,
-
-        compound: original,
-
-        final: original,
-
-        isMaster: true,
-      };
-    }
 
     let current = original;
+
+    const steps = [current];
+
+    // =====================================
+    // Reduce Compound Number
+    // =====================================
 
     while (current > 9) {
       current = current
@@ -60,35 +47,26 @@ const Utils = {
         .reduce((sum, digit) => sum + Number(digit), 0);
 
       steps.push(current);
-
-      // Stop if a Master Number is reached
-      if (
-        preserveMaster &&
-        (current === 11 || current === 22 || current === 33)
-      ) {
-        return {
-          original: original,
-
-          steps: steps,
-
-          compound: original,
-
-          final: current,
-
-          isMaster: true,
-        };
-      }
     }
 
+    // =====================================
+    // Traditional Chaldean Result
+    // =====================================
+
     return {
+      // Original total
       original: original,
 
-      steps: steps,
-
+      // Compound Number
       compound: original,
 
+      // Reduction Steps
+      steps: steps,
+
+      // Root / Single Digit
       final: current,
 
+      // Traditional Chaldean
       isMaster: false,
     };
   },
