@@ -603,103 +603,54 @@ body {
 ========================================== */
 
 @media print {
-  body {
-    background: #fff;
-  }
-
-  .hero,
-  .form-card,
-  .language-switch,
-  .interpretation-language-section,
-  .pdf-button-wrapper,
-  #downloadBtn {
-    display: none !important;
-  }
-
-  .container {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  #reportContainer {
-    display: block !important;
-  }
-
-  .report-card {
-    box-shadow: none;
-    border: 1px solid #d1d5db;
-    break-inside: avoid;
-  }
-
-  .accordion {
-    display: block !important;
-    box-shadow: none;
-    border: 1px solid #d1d5db;
-    break-inside: avoid;
-    overflow: visible;
-  }
-
-  .accordion > summary {
-    display: block;
-    cursor: default;
-    color: #111827;
-    background: #f8fafc;
-    border-bottom: 1px solid #e5e7eb;
-  }
-
-  .accordion > summary::after {
-    display: none !important;
-  }
-
-  .accordion > div {
-    display: block !important;
-  }
-
+  /* Keep every inner interpretation as one block */
   .sub-accordion {
     display: block !important;
-    break-inside: avoid;
-    overflow: visible;
-    border: 1px solid #dbe3ee;
+
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+
+    break-before: auto;
+    page-break-before: auto;
+
+    overflow: visible !important;
   }
 
   .sub-accordion > summary {
-    display: block;
-    cursor: default;
-    color: #111827;
-    background: #f8fafc;
-    border-bottom: 1px solid #dbe3ee;
-  }
+    display: block !important;
 
-  .sub-accordion > summary::after {
-    display: none !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
   }
 
   .sub-accordion > .interpretation-card {
     display: block !important;
+
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
   .interpretation-card {
-    display: block !important;
-    box-shadow: none;
-    break-inside: avoid;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
+  /* Keep raw number row with first interpretation */
   .result-item {
-    break-inside: avoid;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+
+    break-after: avoid !important;
+    page-break-after: avoid !important;
   }
 
-  h2,
-  h3,
-  h4,
-  summary {
-    break-after: avoid;
+  /* Main sections start on a new page */
+  #reportContainer .accordion + .accordion {
+    break-before: page !important;
+    page-break-before: always !important;
   }
 }
-/* Each main report section starts on a new PDF page */
-#reportContainer .accordion + .accordion {
-  break-before: page;
-  page-break-before: always;
-}
+
 /* =====================================
    Sub Item Bullet Styling
 ===================================== */
@@ -880,5 +831,25 @@ body {
   #downloadBtn {
     width: 100%;
     padding: 14px 20px;
+  }
+}
+/* ==========================================
+   FINAL PRINT HIDE FIX
+========================================== */
+
+@media print {
+  .hero,
+  .form-card,
+  .language-switch,
+  .interpretation-language-section,
+  .pdf-button-wrapper,
+  #downloadBtn,
+  #calculateBtn,
+  #resetBtn {
+    display: none !important;
+  }
+
+  #reportContainer {
+    display: block !important;
   }
 }
