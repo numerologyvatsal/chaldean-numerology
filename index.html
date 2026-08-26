@@ -16,10 +16,14 @@
              Title
         ========================== -->
 
-      <section class="hero">
-        <h1>Chaldean Numerology</h1>
+      <section class="language-switch">
+        <button type="button" id="englishBtn" class="language-btn active">
+          English
+        </button>
 
-        <p>Calculate Complete Numerology Report</p>
+        <button type="button" id="gujaratiBtn" class="language-btn">
+          ગુજરાતી
+        </button>
       </section>
 
       <!-- =========================
@@ -56,12 +60,21 @@
         ========================== -->
 
       <section id="reportContainer"></section>
+      <div class="pdf-button-wrapper">
+        <button type="button" id="downloadBtn">Download PDF</button>
+      </div>
     </main>
 
     <script src="js/utils.js"></script>
     <script src="js/engine.js"></script>
     <script src="js/calculations.js"></script>
     <script src="js/database.js"></script>
+
+    <script src="js/interpretations.js"></script>
+    <script src="js/interpretations-gu.js"></script>
+
+    <script src="js/language.js"></script>
+
     <script src="js/report.js"></script>
     <script src="js/script.js"></script>
   </body>
