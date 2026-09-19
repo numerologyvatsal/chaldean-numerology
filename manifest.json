@@ -1,22 +1,22 @@
 {
-  "id": "./",
+  "id": "/chaldean-numerology/",
   "name": "Chaldean Numerology",
   "short_name": "Numerology",
   "description": "Chaldean Numerology Calculator and Interpretation App",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "/chaldean-numerology/",
+  "scope": "/chaldean-numerology/",
   "display": "standalone",
   "background_color": "#f4f6fb",
   "theme_color": "#1d4ed8",
   "icons": [
     {
-      "src": "icons/icon-192.png",
+      "src": "/chaldean-numerology/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icons/icon-512.png",
+      "src": "/chaldean-numerology/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"

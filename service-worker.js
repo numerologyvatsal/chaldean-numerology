@@ -2,34 +2,31 @@
 =========================================
 CHALDEAN NUMEROLOGY
 Service Worker
-Offline / PWA Support
 =========================================
 */
 
-const CACHE_NAME = "chaldean-numerology-v2";
+const CACHE_NAME = "chaldean-numerology-v3";
 
 const FILES_TO_CACHE = [
-  "./",
-  "./index.html",
+  "/chaldean-numerology/",
+  "/chaldean-numerology/index.html",
 
-  "./css/style.css",
+  "/chaldean-numerology/css/style.css",
 
-  "./js/utils.js",
-  "./js/engine.js",
-  "./js/calculations.js",
-  "./js/database.js",
+  "/chaldean-numerology/js/utils.js",
+  "/chaldean-numerology/js/engine.js",
+  "/chaldean-numerology/js/calculations.js",
+  "/chaldean-numerology/js/database.js",
+  "/chaldean-numerology/js/interpretations.js",
+  "/chaldean-numerology/js/interpretations-gu.js",
+  "/chaldean-numerology/js/language.js",
+  "/chaldean-numerology/js/report.js",
+  "/chaldean-numerology/js/script.js",
 
-  "./js/interpretations.js",
-  "./js/interpretations-gu.js",
-  "./js/language.js",
+  "/chaldean-numerology/manifest.json",
 
-  "./js/report.js",
-  "./js/script.js",
-
-  "./manifest.json",
-
-  "./icons/icon-192.png",
-  "./icons/icon-512.png",
+  "/chaldean-numerology/icons/icon-192.png",
+  "/chaldean-numerology/icons/icon-512.png",
 ];
 
 // =====================================
@@ -65,7 +62,7 @@ self.addEventListener("activate", (event) => {
 });
 
 // =====================================
-// FETCH / OFFLINE
+// FETCH
 // =====================================
 
 self.addEventListener("fetch", (event) => {
@@ -99,7 +96,7 @@ self.addEventListener("fetch", (event) => {
         })
         .catch(() => {
           if (event.request.mode === "navigate") {
-            return caches.match("./index.html");
+            return caches.match("/chaldean-numerology/index.html");
           }
 
           return new Response("Offline", {
