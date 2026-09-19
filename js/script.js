@@ -238,8 +238,8 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
       .register("./service-worker.js")
-      .then(() => {
-        console.log("Service Worker Registered");
+      .then((registration) => {
+        console.log("Service Worker Registered:", registration.scope);
       })
       .catch((error) => {
         console.error("Service Worker Error:", error);

@@ -1,8 +1,17 @@
-const CACHE_NAME = "chaldean-numerology-v1";
+/*
+=========================================
+CHALDEAN NUMEROLOGY
+Service Worker
+Offline / PWA Support
+=========================================
+*/
+
+const CACHE_NAME = "chaldean-numerology-v2";
 
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
+
   "./css/style.css",
 
   "./js/utils.js",
@@ -16,10 +25,15 @@ const FILES_TO_CACHE = [
 
   "./js/report.js",
   "./js/script.js",
+
+  "./manifest.json",
+
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
 ];
 
 // =====================================
-// Install
+// INSTALL
 // =====================================
 
 self.addEventListener("install", (event) => {
@@ -33,7 +47,7 @@ self.addEventListener("install", (event) => {
 });
 
 // =====================================
-// Activate
+// ACTIVATE
 // =====================================
 
 self.addEventListener("activate", (event) => {
@@ -51,7 +65,7 @@ self.addEventListener("activate", (event) => {
 });
 
 // =====================================
-// Offline Fetch
+// FETCH / OFFLINE
 // =====================================
 
 self.addEventListener("fetch", (event) => {
@@ -67,16 +81,31 @@ self.addEventListener("fetch", (event) => {
 
       return fetch(event.request)
         .then((networkResponse) => {
-          return caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, networkResponse.clone());
-
+          if (
+            !networkResponse ||
+            networkResponse.status !== 200 ||
+            networkResponse.type === "opaque"
+          ) {
             return networkResponse;
+          }
+
+          const responseToCache = networkResponse.clone();
+
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
           });
+
+          return networkResponse;
         })
         .catch(() => {
           if (event.request.mode === "navigate") {
             return caches.match("./index.html");
           }
+
+          return new Response("Offline", {
+            status: 503,
+            statusText: "Offline",
+          });
         });
     }),
   );
